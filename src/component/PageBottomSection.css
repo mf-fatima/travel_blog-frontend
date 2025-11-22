@@ -1,0 +1,121 @@
+--- Newsletter Collage Banner ---
+.newsletter-collage-placeholder {
+  /* Replace this with your actual image paths or a single background image */
+  background-image: url('path/to/your/collage_banner_image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  height: 200px; /* Adjust height as needed */
+  width: 100%;
+}
+
+/* --- Newsletter Content --- */
+.newsletter-section {
+  text-align: center;
+}
+
+.newsletter-content {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-content h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.newsletter-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* --- Newsletter Form --- */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.newsletter-form input {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  width: 300px; /* Adjust width of email field */
+}
+
+.newsletter-form button {
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #333; /* Dark background for button */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #555;
+}
+
+/* --- Footer Styling (The dark bottom section) --- */
+.site-footer {
+  background-color: #222; /* Dark background color */
+  color: #aaa;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* --- Social Icons --- */
+.social-icons a {
+  color: #aaa;
+  font-size: 18px;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff; /* White on hover */
+}
+
+/* --- Copyright and Links --- */
+.copyright {
+  font-size: 13px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  color: #f75d5d; /* Reddish link color from the image */
+  text-decoration: none;
+  font-size: 13px;
+  margin: 0 5px;
+}
+
+.footer-links span {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* --- Disclosure Text --- */
+.disclosure-text {
+  max-width: 900px;
+  margin: 20px auto 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .newsletter-form {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .newsletter-form input, .newsletter-form button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

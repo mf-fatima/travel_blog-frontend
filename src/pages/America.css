@@ -1,0 +1,520 @@
+
+/* -------------------- PAGE SETUP -------------------- */
+.africa-page {
+  background: #f9f9f9;
+  color: #111;
+  font-family: 'Arial', Helvetica, sans-serif;
+}
+
+/* -------------------- HERO SLIDER -------------------- */
+.hero-africa {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero-slider img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slider img.active {
+  opacity: 1;
+}
+
+.hero-africa .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* -------------------- SECTIONS -------------------- */
+section {
+  padding: 60px 20px;
+}
+
+.overview h2,
+.quick-facts h3,
+.tours h3,
+.posts h3,
+.get-in-touch h3,
+.newsletter h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ff7b00;
+  font-weight: 700;
+}
+
+.overview p {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Quick Facts */
+.quick-facts {
+  background: #eee;
+}
+
+.quick-facts ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding: 0;
+}
+
+.quick-facts li {
+  background: #fff;
+  padding: 15px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Tours */
+.tour-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.tour-card {
+  width: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.tour-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.tour-card h4 {
+  margin: 15px 0 10px 0;
+  color: #ff7b00;
+  font-weight: 600;
+}
+
+.tour-card p {
+  padding: 0 10px 15px 10px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Posts */
+.post-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.post-card {
+  width: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.post-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.post-card h4 {
+  padding: 10px;
+  color: #ff7b00;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  margin-top: 15px;
+  padding: 14px 30px;
+  background: #ff7b00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #e66a00;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  padding: 25px 20px;
+  text-align: center;
+  background: #222;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 1024px) {
+  .hero-africa .overlay {
+    font-size: 2.5rem;
+  }
+
+  .tour-card, .post-card {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-africa .overlay {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+
+  .tour-card, .post-card {
+    width: 180px;
+  }
+
+  .quick-facts ul {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* MAIN CONTENT + SIDEBAR */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* LEFT CONTENT */
+.content-left {
+  flex: 2;
+}
+
+.content-left h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.content-left h3 {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  color: #34495e;
+}
+
+.content-left p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* RIGHT SIDEBAR */
+.content-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* SIDEBAR SECTIONS */
+.sidebar-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-section:hover {
+  transform: translateY(-3px);
+}
+
+.sidebar-section h4 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e67e22;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.sidebar-section img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar-section p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-section ul li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* INSTAGRAM GRID */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.insta-grid img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .content-left,
+  .content-right {
+    flex: 1;
+  }
+
+  .insta-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .insta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .content-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-left h3 {
+    font-size: 1.2rem;
+  }
+}
+/* CONTENT LEFT - AFRICA TRAVEL GUIDE */
+.content-left {
+  flex: 2;
+  padding-right: 30px;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Main heading */
+.content-left h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #e67e22;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Subheadings */
+.content-left h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #34495e;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.content-left h3::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 20px;
+  background-color: #e67e22;
+  border-radius: 2px;
+}
+
+/* Paragraphs */
+.content-left p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Lists (if added later) */
+.content-left ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.content-left ul li {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .content-left {
+    padding-right: 0;
+  }
+  
+  .content-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .content-left h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .content-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .content-left h3 {
+    font-size: 1.2rem;
+  }
+
+  .content-left p {
+    font-size: 0.95rem;
+  }
+}
+/* Social Sidebar */
+.sidebar-section.social {
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-section.social:hover {
+  transform: translateY(-3px);
+}
+
+.sidebar-section.social h4 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e67e22;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.sidebar-section.social ul.social-links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-section.social ul.social-links li {
+  margin-bottom: 12px;
+}
+
+.sidebar-section.social ul.social-links li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.sidebar-section.social ul.social-links li a:hover {
+  color: #e67e22;
+}
+
+.sidebar-section.social ul.social-links li a svg {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.sidebar-section.social ul.social-links li a:hover svg {
+  color: #e67e22;
+}
+.sidebar-section.social ul.social-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-section.social ul.social-links li {
+  margin: 10px 0;
+}
+
+.sidebar-section.social ul.social-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.sidebar-section.social ul.social-links li a:hover {
+  color: #0073e6;
+}
+
+.social-icon {
+  font-size: 18px;
+}

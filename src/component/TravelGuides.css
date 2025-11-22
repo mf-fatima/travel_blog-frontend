@@ -1,0 +1,81 @@
+.travel-guides-container {
+  padding: 40px 20px;
+  max-width: 1200px; /* Adjust to your page's content width */
+  margin: 0 auto;
+}
+
+/* --- Header Styling --- */
+.travel-guides-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.travel-guides-header h1 {
+  font-size: 36px; /* Adjust font size/family to match the image */
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.travel-guides-header p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 0;
+}
+
+/* --- Grid Layout using CSS Grid --- */
+.travel-posts-grid {
+  display: grid;
+  /* Creates 3 equal columns for larger screens */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Space between grid items */
+}
+
+/* --- Card Styling --- */
+.travel-post-card {
+  display: block; /* Makes the entire card clickable */
+  text-decoration: none; /* Remove underline from link */
+  color: inherit;
+}
+
+.travel-post-image-wrapper {
+  overflow: hidden;
+  border-radius: 4px; /* Optional: adds a slight corner rounding */
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.travel-post-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Optional: hover effect */
+  transition: transform 0.3s ease-in-out; 
+}
+
+.travel-post-card:hover .travel-post-image-wrapper img {
+  transform: scale(1.05); /* Zoom in effect on hover */
+}
+
+.travel-post-title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333; /* Adjust color to match the image */
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .travel-posts-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .travel-posts-grid {
+    grid-template-columns: 1fr; /* 1 column on small screens (mobile) */
+  }
+}
