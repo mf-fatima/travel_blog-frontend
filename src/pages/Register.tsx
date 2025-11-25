@@ -1,79 +1,124 @@
 import React, { useState } from "react";
+import "../pages/register.css";
 
-interface RegisterProps {
-  onClose?: () => void; // optional, for modal use
-}
+const Register: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    address: "",
+    profileImg: null as File | null,
+  });
 
-const Register: React.FC<RegisterProps> = ({ onClose }) => {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  // Handle input changes
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value, files } = e.target as HTMLInputElement;
+    if (files) {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
+  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Register submitted with ${form.name}`);
-    if (onClose) onClose();
+    // Here you can send formData to your backend
+    console.log(formData);
   };
 
-  const content = (
-    <form
-      className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md"
-      onSubmit={handleSubmit}
-    >
-      <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
-      <input
-        type="text"
-        name="name"
-        value={form.name}
-        onChange={handleChange}
-        placeholder="Name"
-        className="w-full p-2 border rounded mt-2"
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        value={form.email}
-        onChange={handleChange}
-        placeholder="Email"
-        className="w-full p-2 border rounded mt-2"
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        value={form.password}
-        onChange={handleChange}
-        placeholder="Password"
-        className="w-full p-2 border rounded mt-2"
-        required
-      />
-      <button
-        type="submit"
-        className="w-full bg-blue-600 text-white py-2 mt-4 rounded hover:bg-blue-700"
-      >
-        Register
-      </button>
-      {onClose && (
-        <button
-          type="button"
-          className="absolute top-2 right-2 text-gray-500"
-          onClick={onClose}
-        >
-          ✖
-        </button>
-      )}
-    </form>
-  );
+  return (
+    <div className="register-container">
+      <div className="register-card">
+        <h2 className="register-title">Create an Account</h2>
 
-  return onClose ? (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      {content}
+        <form className="register-form" onSubmit={handleSubmit}>
+          {/* Name */}
+          <div className="input-group">
+            <label htmlFor="name">Your Name</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              title="Enter your full name"
+              required
+            />
+          </div>
+
+          {/* Email */}
+          <div className="input-group">
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              title="Enter your email address"
+              required
+            />
+          </div>
+
+          {/* Password */}
+          <div className="input-group">
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Create a password"
+              value={formData.password}
+              onChange={handleChange}
+              title="Enter a secure password"
+              required
+            />
+          </div>
+
+          {/* Address */}
+          <div className="input-group">
+            <label htmlFor="address">Address</label>
+            <input
+              id="address"
+              type="text"
+              name="address"
+              placeholder="Enter your address"
+              value={formData.address}
+              onChange={handleChange}
+              title="Enter your full address"
+              required
+            />
+          </div>
+
+          {/* Profile Image */}
+          <div className="input-group">
+            <label htmlFor="profileImg">Profile Image</label>
+            <input
+              id="profileImg"
+              type="file"
+              name="profileImg"
+              accept="image/*"
+              onChange={handleChange}
+              title="Upload a profile image"
+            />
+          </div>
+
+          {/* Register Button */}
+          <button className="register-btn" type="submit">
+            Register
+          </button>
+        </form>
+
+        <p className="register-footer">
+          Already have an account? <a href="/login">Login</a>
+        </p>
+      </div>
     </div>
-  ) : (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">{content}</div>
   );
 };
 

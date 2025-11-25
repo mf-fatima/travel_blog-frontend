@@ -1,0 +1,97 @@
+/* ===================== LOGIN PAGE STYLES ===================== */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef5ff;
+  padding: 20px;
+}
+
+.login-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff7b00;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-field {
+  margin-bottom: 15px;
+}
+
+.login-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-top: 6px;
+  transition: 0.2s;
+}
+
+.login-input:focus {
+  border-color: #ff7b00;
+  box-shadow: 0 0 0 3px rgba(255, 123, 0, 0.25);
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  background: #ff7b00;
+  padding: 12px;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.login-btn:hover {
+  background: #e67300;
+}
+
+.login-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-link {
+  color: #ff7b00;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

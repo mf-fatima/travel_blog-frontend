@@ -1,0 +1,170 @@
+/* ===================== Container ===================== */
+.bloglist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  
+}
+
+/* ===================== Banner ===================== */
+.bloglist-banner {
+  width: 100%;            /* full width */
+  height: 70vh;           /* 70% of viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content */
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  padding: 0 1.5rem;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.3); /* optional dark overlay */
+}
+
+/* Banner Text */
+.bloglist-banner h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bloglist-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+/* Banner Button */
+.btn-create-blog {
+  padding: 0.75rem 1.75rem;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-create-blog:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+}
+
+/* ===================== Blog Grid ===================== */
+.bloglist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .bloglist-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bloglist-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================== Blog Card ===================== */
+.blog-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Content */
+.blog-card-content {
+  padding: 1rem;
+}
+
+.blog-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.blog-card-meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.blog-card-text {
+  margin-top: 0.5rem;
+  color: #374151;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Blog Image (handled in TSX) */
+.blog-card-img {
+  width: 100%;
+  height: 250px;         /* fixed height for consistency */
+  object-fit: cover;     /* maintain aspect ratio and cover */
+  border-bottom: 1px solid #e5e7eb;
+  transition: transform 0.3s ease;
+}
+
+.blog-card-img:hover {
+  transform: scale(1.05);
+}
+
+/* Placeholder for missing image */
+.blog-card-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ===================== Empty State ===================== */
+.bloglist-empty {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 3rem;
+  grid-column: span 3;
+}
+
+.bloglist-empty span {
+  font-weight: 600;
+}
+
+/* ===================== Responsive Typography ===================== */
+@media (max-width: 640px) {
+  .bloglist-banner h1 {
+    font-size: 2rem;
+  }
+
+  .bloglist-banner p {
+    font-size: 1rem;
+  }
+
+  .blog-card-img,
+  .blog-card-placeholder {
+    height: 200px;
+  }
+}

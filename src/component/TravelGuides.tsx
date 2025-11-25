@@ -4,12 +4,12 @@ import './TravelGuides.css'; // Make sure this CSS file exists and has proper st
 // Travel posts data
 const travelPosts = [
   { title: 'HOW TO VISIT THE PYRAMIDS IN EGYPT', imageSrc: '/HOW TO VISIT THE PYRAMIDS IN EGYPT.jpg' },
-  { title: 'NUSA PENIDA ISLAND GUIDE FOR BALI', imageSrc: '/NUSA PENIDA ISLAND GUIDE FOR BALI.jpg' },
+  // { title: 'NUSA PENIDA ISLAND GUIDE FOR BALI', imageSrc: '/NUSA PENIDA ISLAND GUIDE FOR BALI.jpg' },
   { title: '22 BEST THINGS TO DO IN JAPAN', imageSrc: '/22 BEST THINGS TO DO IN JAPAN.jpg' },
-  { title: '10 THINGS TO DO AT MACHU PICCHU IN PERU', imageSrc: '/10 THINGS TO DO AT MACHU PICCHU IN PERU.jpg' },
+  // { title: '10 THINGS TO DO AT MACHU PICCHU IN PERU', imageSrc: '/10 THINGS TO DO AT MACHU PICCHU IN PERU.jpg' },
   { title: 'HOW TO VISIT PETRA IN JORDAN', imageSrc: '/HOW TO VISIT PETRA IN JORDAN.jpg' },
-  { title: '19 BEST WATERFALLS IN INDONESIA', imageSrc: '/19 BEST WATERFALLS IN INDONESIA.jpg' },
-  { title: '27 BEST ISLANDS IN INDONESIA', imageSrc: '/27 BEST ISLANDS IN INDONESIA.jpg' },
+  // { title: '19 BEST WATERFALLS IN INDONESIA', imageSrc: '/19 BEST WATERFALLS IN INDONESIA.jpg' },
+  // { title: '27 BEST ISLANDS IN INDONESIA', imageSrc: '/27 BEST ISLANDS IN INDONESIA.jpg' },
   { title: '38 BEST THINGS TO DO IN OAHU HAWAII', imageSrc: '/38 BEST THINGS TO DO IN OAHU HAWAII.jpg' },
   { title: 'CORON PALAWAN ISLAND GUIDE', imageSrc: '/CORON PALAWAN ISLAND GUIDE.jpg' },
   { title: 'EL NIDO PALAWAN ISLAND GUIDE', imageSrc: '/EL NIDO PALAWAN ISLAND GUIDE.jpg' },
@@ -19,8 +19,8 @@ const travelPosts = [
   { title: 'BALI WATERFALL GUIDE & MAP', imageSrc: '/BALI WATERFALL GUIDE & MAP.jpg' },
   { title: '24 BEST THINGS TO DO IN INDONESIA', imageSrc: '/24 BEST THINGS TO DO IN INDONESIA.jpg' },
   { title: 'HOW TO VISIT THE BALI MONKEY FOREST', imageSrc: '/HOW TO VISIT THE BALI MONKEY FOREST.jpg' },
-  { title: 'HOW TO VISIT CHICHEN ITZA FROM CANCUN', imageSrc: '/HOW TO VISIT CHICHEN ITZA FROM CANCUN.jpg' },
-  { title: 'BAGAN MYANMAR TRAVEL GUIDE', imageSrc: '/BAGAN MYANMAR TRAVEL GUIDE.jpg' },
+  // { title: 'HOW TO VISIT CHICHEN ITZA FROM CANCUN', imageSrc: '/HOW TO VISIT CHICHEN ITZA FROM CANCUN.jpg' },
+  // { title: 'BAGAN MYANMAR TRAVEL GUIDE', imageSrc: '/BAGAN MYANMAR TRAVEL GUIDE.jpg' },
 ];
 
 const TravelGuides = () => {

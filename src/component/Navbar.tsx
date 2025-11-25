@@ -1,28 +1,10 @@
 import { FaGlobe } from "react-icons/fa";
-import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [showDestinations, setShowDestinations] = useState(false);
   const [showCatDropdown, setShowCatDropdown] = useState(false);
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const profileRef = useRef<HTMLLIElement | null>(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (profileRef.current && !profileRef.current.contains(event.target as Node)) {
-        setShowProfileMenu(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleNavigate = (path: string) => {
-    navigate(path);
-    setShowDestinations(false);
-  };
 
   return (
     <nav className="navbar bg-blue-600 text-white p-4 flex justify-between items-center">
@@ -32,9 +14,18 @@ const Navbar: React.FC = () => {
       </div>
 
       <ul className="nav-links flex items-center gap-6">
-        <li onClick={() => navigate("/")}>HOME</li>
-        <li onClick={() => navigate("/blog")}>BLOG</li>
+        <li>
+          <Link to="/" className="hover:underline">
+            HOME
+          </Link>
+        </li>
+        <li>
+          <Link to="/blogs" className="hover:underline">
+            BLOG
+          </Link>
+        </li>
 
+        {/* Destinations Dropdown */}
         <li
           className="dropdown relative"
           onMouseEnter={() => setShowDestinations(true)}
@@ -43,16 +34,29 @@ const Navbar: React.FC = () => {
           DESTINATIONS ▾
           {showDestinations && (
             <ul className="dropdown-menu absolute bg-white text-black mt-1 p-2 rounded shadow">
-              <li onClick={() => handleNavigate("/africa")}>Africa</li>
-              <li onClick={() => handleNavigate("/america")}>America</li>
-              <li onClick={() => handleNavigate("/asia")}>Asia</li>
-              <li onClick={() => handleNavigate("/europe")}>Europe</li>
-              <li onClick={() => handleNavigate("/middle-east")}>Middle East</li>
-              <li onClick={() => handleNavigate("/oceania")}>Oceania</li>
+              <li>
+                <Link to="/africa">Africa</Link>
+              </li>
+              <li>
+                <Link to="/america">America</Link>
+              </li>
+              <li>
+                <Link to="/asia">Asia</Link>
+              </li>
+              <li>
+                <Link to="/europe">Europe</Link>
+              </li>
+              <li>
+                <Link to="/middle-east">Middle East</Link>
+              </li>
+              <li>
+                <Link to="/oceania">Oceania</Link>
+              </li>
             </ul>
           )}
         </li>
 
+        {/* Categories Dropdown */}
         <li
           className="dropdown relative"
           onMouseEnter={() => setShowCatDropdown(true)}
@@ -73,39 +77,32 @@ const Navbar: React.FC = () => {
           )}
         </li>
 
-        <li onClick={() => navigate("/gallery")}>GALLERY</li>
-        <li onClick={() => navigate("/about")}>ABOUT</li>
-        <li onClick={() => navigate("/contact")}>CONTACT</li>
+        <li>
+          <Link to="/gallery" className="hover:underline">
+            GALLERY
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="hover:underline">
+            ABOUT
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="hover:underline">
+            CONTACT
+          </Link>
+        </li>
 
-        <li className="relative" ref={profileRef}>
-          <img
-            src="/logo.jpg"
-            alt="profile"
-            className="profile-icon w-8 h-8 rounded-full cursor-pointer"
-            onClick={() => setShowProfileMenu(!showProfileMenu)}
-          />
-          {showProfileMenu && (
-            <ul className="profile-menu absolute right-0 mt-2 bg-white text-black rounded shadow p-2 w-32">
-              <li
-                className="cursor-pointer hover:bg-gray-200 p-1 rounded"
-                onClick={() => {
-                  navigate("/login");
-                  setShowProfileMenu(false);
-                }}
-              >
-                Login
-              </li>
-              <li
-                className="cursor-pointer hover:bg-gray-200 p-1 rounded"
-                onClick={() => {
-                  navigate("/register");
-                  setShowProfileMenu(false);
-                }}
-              >
-                Register
-              </li>
-            </ul>
-          )}
+        {/* Login/Register Links */}
+        <li>
+          <Link to="/login" className="hover:underline">
+            Login
+          </Link>
+        </li>
+        <li>
+          <Link to="/register" className="hover:underline">
+            Register
+          </Link>
         </li>
       </ul>
     </nav>
