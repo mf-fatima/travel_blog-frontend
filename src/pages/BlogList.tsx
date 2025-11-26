@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import './BlogList.css';
+import "./BlogList.css";
 
 interface Blog {
   _id: string;
@@ -13,7 +13,6 @@ interface Blog {
   };
 }
 
-// Mock data
 const mockBlogs: Blog[] = [
   {
     _id: "1",
@@ -45,53 +44,64 @@ const BlogList: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bloglist-container">
+    <div>
 
-      {/* Banner Section Below Navbar */}
+      {/* -------- FULL WIDTH BANNER (fixed) -------- */}
       <div
-  className="bloglist-banner"
-  style={{ backgroundImage: "url('/South Africa Adventure.jpg')" }}
->
-        <h1>Welcome to Our Blog</h1>
-        <p>Explore latest stories, tips, and experiences from around the world.</p>
+        className="bloglist-banner"
+        style={{ backgroundImage: "url('/beach.jpg')" }}
+      >
+        <h1 className="banner-title">BLOG</h1>
+        <p className="banner-subtitle">Recent travel blog posts</p>
+
         <button
           className="btn-create-blog"
           onClick={() => navigate("/blogs/create")}
         >
-          + Create Blog
+          Create Blog
         </button>
       </div>
 
-      {/* Blog Grid */}
-      {mockBlogs.length === 0 ? (
-        <p className="bloglist-empty">
-          No blogs available yet. Be the first to <span>create a post</span>!
-        </p>
-      ) : (
-        <div className="bloglist-grid">
-          {mockBlogs.map((blog) => (
-            <Link key={blog._id} to={`/blogs/${blog._id}`} className="blog-card">
-              {blog.coverImage ? (
-                <img src={blog.coverImage} alt={blog.title} className="blog-card-img" />
-              ) : (
-                <div className="blog-card-placeholder">No Image</div>
-              )}
-              <div className="blog-card-content">
-                <h2 className="blog-card-title">{blog.title}</h2>
-                <p className="blog-card-meta">
-                  {blog.author?.name || "Unknown Author"} –{" "}
-                  {new Date(blog.createdAt).toDateString()}
-                </p>
-                <p className="blog-card-text">
-                  {blog.content.length > 120
-                    ? blog.content.substring(0, 120) + "..."
-                    : blog.content}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      )}
+      {/* -------- HEADING BELOW BANNER (as screenshot) -------- */}
+      <div className="bloglist-container">
+        <h2 className="bloglist-heading">Recent Travel Blog Posts</h2>
+
+        {/* -------- BLOG GRID -------- */}
+        {mockBlogs.length === 0 ? (
+          <p className="bloglist-empty">
+            No blogs available yet. Be the first to <span>create a post</span>!
+          </p>
+        ) : (
+          <div className="bloglist-grid">
+            {mockBlogs.map((blog) => (
+              <Link key={blog._id} to={`/blogs/${blog._id}`} className="blog-card">
+                {blog.coverImage ? (
+                  <img
+                    src={blog.coverImage}
+                    alt={blog.title}
+                    className="blog-card-img"
+                  />
+                ) : (
+                  <div className="blog-card-placeholder">No Image</div>
+                )}
+
+                <div className="blog-card-content">
+                  <h2 className="blog-card-title">{blog.title}</h2>
+                  <p className="blog-card-meta">
+                    {blog.author?.name || "Unknown Author"} –{" "}
+                    {new Date(blog.createdAt).toDateString()}
+                  </p>
+                  <p className="blog-card-text">
+                    {blog.content.length > 120
+                      ? blog.content.substring(0, 120) + "..."
+                      : blog.content}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

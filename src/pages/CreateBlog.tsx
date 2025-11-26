@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './CreateBlog.css'; // Import separate CSS
+import "./CreateBlog.css";
 
 const CreateBlog: React.FC = () => {
   const [title, setTitle] = useState("");
@@ -49,7 +49,6 @@ const CreateBlog: React.FC = () => {
       <h1 className="createblog-title">Create New Blog Post</h1>
 
       <form onSubmit={handleSubmit} className="createblog-form">
-        {/* TITLE */}
         <input
           type="text"
           placeholder="Blog Title"
@@ -58,7 +57,6 @@ const CreateBlog: React.FC = () => {
           required
         />
 
-        {/* CATEGORY */}
         <input
           type="text"
           placeholder="Category ID"
@@ -67,7 +65,6 @@ const CreateBlog: React.FC = () => {
           required
         />
 
-        {/* TAGS */}
         <input
           type="text"
           placeholder="Tags (comma separated)"
@@ -75,7 +72,6 @@ const CreateBlog: React.FC = () => {
           onChange={(e) => setTags(e.target.value)}
         />
 
-        {/* CONTENT */}
         <textarea
           placeholder="Content"
           value={content}
@@ -84,7 +80,6 @@ const CreateBlog: React.FC = () => {
           className="min-height"
         />
 
-        {/* META TITLE */}
         <input
           type="text"
           placeholder="Meta Title"
@@ -92,14 +87,12 @@ const CreateBlog: React.FC = () => {
           onChange={(e) => setMetaTitle(e.target.value)}
         />
 
-        {/* META DESCRIPTION */}
         <textarea
           placeholder="Meta Description"
           value={metaDescription}
           onChange={(e) => setMetaDescription(e.target.value)}
         />
 
-        {/* COVER IMAGE */}
         <label htmlFor="coverImage">Cover Image</label>
         <input
           id="coverImage"
@@ -107,7 +100,6 @@ const CreateBlog: React.FC = () => {
           onChange={(e) => setCoverImage(e.target.files?.[0] ?? null)}
         />
 
-        {/* GALLERY IMAGES */}
         <label htmlFor="galleryImages">Gallery Images</label>
         <input
           id="galleryImages"
@@ -116,7 +108,6 @@ const CreateBlog: React.FC = () => {
           onChange={(e) => setImages(e.target.files)}
         />
 
-        {/* BUTTON */}
         <button type="submit" className="createblog-submit-btn">
           Publish Blog
         </button>

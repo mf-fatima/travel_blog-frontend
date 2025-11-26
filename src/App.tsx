@@ -33,7 +33,6 @@ const App: React.FC = () => {
       {/* Navbar */}
       <Navbar />
 
-      {/* Routes */}
       <Routes>
         {/* Home Page */}
         <Route

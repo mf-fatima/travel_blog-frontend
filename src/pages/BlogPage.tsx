@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import './BlogPage.css'; // Import the separate CSS file
+import "./BlogPage.css";
 
 interface Blog {
   _id: string;
@@ -10,9 +10,7 @@ interface Blog {
   coverImage: string;
   images: string[];
   createdAt: string;
-  author?: {
-    name: string;
-  };
+  author?: { name: string };
 }
 
 const BlogPage: React.FC = () => {
@@ -33,51 +31,53 @@ const BlogPage: React.FC = () => {
       });
   }, [id]);
 
-  if (loading) {
-    return <p className="loading">Loading blog...</p>;
-  }
+  if (loading) return <p className="loading">Loading blog...</p>;
 
-  if (!blog) {
+  if (!blog)
     return (
       <div className="error">
         <h2>Blog not found</h2>
       </div>
     );
-  }
 
   return (
-    <div className="blog-container">
-      {/* Title */}
-      <h1 className="blog-title">{blog.title}</h1>
+    <div className="blogpage-container">
 
-      {/* Author + Date */}
-      <p className="blog-meta">
-        {blog.author?.name} — {new Date(blog.createdAt).toDateString()}
-      </p>
+      {/* ======== BANNER WITH COVER IMAGE ======== */}
+      <div
+        className="blogpage-banner"
+        style={{
+          backgroundImage: `url(https://your-s3-bucket/${blog.coverImage})`,
+        }}
+      >
+        <div className="blogpage-banner-overlay">
+          <h1>{blog.title}</h1>
+          <p>
+            {blog.author?.name || "Unknown Author"} —{" "}
+            {new Date(blog.createdAt).toDateString()}
+          </p>
+        </div>
+      </div>
 
-      {/* Cover Image */}
-      <img
-        src={`https://your-s3-bucket/${blog.coverImage}`}
-        alt={blog.title}
-        className="blog-cover"
-      />
+      {/* ======== CONTENT SECTION ======== */}
+      <div className="blogpage-content-wrapper">
+        <article
+          className="blogpage-content"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+        />
+      </div>
 
-      {/* Blog Content */}
-      <article className="blog-content">
-        {blog.content}
-      </article>
-
-      {/* Gallery Images */}
-      {blog.images && blog.images.length > 0 && (
-        <div className="blog-gallery">
+      {/* ======== GALLERY SECTION ======== */}
+      {blog.images.length > 0 && (
+        <div className="blogpage-gallery-section">
           <h2>Gallery</h2>
-          <div className="blog-gallery-grid">
+          <div className="blogpage-gallery-grid">
             {blog.images.map((img, index) => (
               <img
                 key={index}
                 src={`https://your-s3-bucket/${img}`}
-                alt="gallery"
-                className="blog-gallery-img"
+                alt="Gallery"
+                className="blogpage-gallery-img"
               />
             ))}
           </div>
