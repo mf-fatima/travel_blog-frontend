@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useAuth } from "../context/authcontext";
+import { useNavigate } from "react-router-dom";
 import "../pages/register.css";
 
 const Register: React.FC = () => {
+  const navigate = useNavigate();
+  const { registerUser, loading, error } = useAuth();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +15,6 @@ const Register: React.FC = () => {
     profileImg: null as File | null,
   });
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -22,95 +26,96 @@ const Register: React.FC = () => {
     }
   };
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you can send formData to your backend
-    console.log(formData);
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  // 🔹 Prepare FormData with correct backend keys
+  const data = new FormData();
+  data.append("userName", formData.name);
+  data.append("userEmail", formData.email);
+  data.append("userPassword", formData.password);
+  data.append("userAddress", formData.address);
+
+  if (formData.profileImg) {
+    data.append("profileImage", formData.profileImg);
+  }
+
+  const success = await registerUser(data);
+
+  if (success) {
+    navigate("/login");
+  }
+};
+
 
   return (
     <div className="register-container">
       <div className="register-card">
         <h2 className="register-title">Create an Account</h2>
 
+        {error && <p className="error-text">{error}</p>}
+
         <form className="register-form" onSubmit={handleSubmit}>
-          {/* Name */}
           <div className="input-group">
-            <label htmlFor="name">Your Name</label>
+            <label>Your Name</label>
             <input
-              id="name"
               type="text"
               name="name"
               placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
-              title="Enter your full name"
               required
             />
           </div>
 
-          {/* Email */}
           <div className="input-group">
-            <label htmlFor="email">Email</label>
+            <label>Email</label>
             <input
-              id="email"
               type="email"
               name="email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
-              title="Enter your email address"
               required
             />
           </div>
 
-          {/* Password */}
           <div className="input-group">
-            <label htmlFor="password">Password</label>
+            <label>Password</label>
             <input
-              id="password"
               type="password"
               name="password"
               placeholder="Create a password"
               value={formData.password}
               onChange={handleChange}
-              title="Enter a secure password"
               required
             />
           </div>
 
-          {/* Address */}
           <div className="input-group">
-            <label htmlFor="address">Address</label>
+            <label>Address</label>
             <input
-              id="address"
               type="text"
               name="address"
               placeholder="Enter your address"
               value={formData.address}
               onChange={handleChange}
-              title="Enter your full address"
               required
             />
           </div>
 
-          {/* Profile Image */}
-          <div className="input-group">
-            <label htmlFor="profileImg">Profile Image</label>
+          {/* <div className="input-group">
+            <label>Profile Image</label>
             <input
-              id="profileImg"
               type="file"
               name="profileImg"
               accept="image/*"
               onChange={handleChange}
-              title="Upload a profile image"
             />
-          </div>
+          </div> */}
 
-          {/* Register Button */}
-          <button className="register-btn" type="submit">
-            Register
+          <button className="register-btn" type="submit" disabled={loading}>
+            {loading ? "Registering..." : "Register"}
           </button>
         </form>
 

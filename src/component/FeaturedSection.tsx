@@ -1,4 +1,4 @@
-import React from "react";
+ 
 import "./FeaturedSection.css"; // You can define your styles here
 
 const FeaturedSection = () => (

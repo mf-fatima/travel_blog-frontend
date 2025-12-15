@@ -159,9 +159,9 @@ const Africa = () => {
       </section>
 
       {/* Footer */}
-      <footer>
+      {/* <footer>
         <p>&copy; 2025 Africa Travel. All rights reserved.</p>
-      </footer>
+      </footer> */}
     </div>
   );
 };

@@ -81,6 +81,17 @@ body {
   z-index: 999;
 }
 
+/* Centered dropdown for user profile */
+.user-dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown-menu li,
+.dropdown-menu button {
+  font-size: 0.95rem;
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
 }
@@ -105,6 +116,79 @@ body {
 
 .dropdown-menu li:hover a {
   color: black !important;
+}
+
+/* Dropdown buttons inside menu */
+.dropdown-menu button {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #b36721;
+  color: black !important;
+}
+
+/* Avatar circle for user in navbar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.95); /* navbar bg */
+  border: 2px solid #ff7b00; /* logo color border */
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  overflow: hidden;
+  transform: translateY(-4px);
+}
+
+.navbar .nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-initials {
+  font-size: 0.75rem;
+}
+
+/* Plain MyBlogs list */
+.myblogs-list {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.myblog-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.myblog-item h3 a {
+  color: #111827;
+  text-decoration: none;
+}
+
+.myblog-item h3 a:hover {
+  text-decoration: underline;
+}
+
+.myblog-excerpt {
+  color: #374151;
+  margin-top: 6px;
 }
 
 /* ===================== SUB-DROPDOWN ===================== */
@@ -196,12 +280,31 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  outline: none;
 }
 
 .btn:hover {
   background: white;
   color: black;
   transform: scale(1.05);
+}
+
+/* ===================== TOAST ===================== */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+}
+
+.toast {
+  background: rgba(34,34,34,0.95);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35);
+  font-weight: 600;
 }
 
 /* ===================== RESPONSIVE ===================== */
@@ -356,3 +459,17 @@ body {
 .auth-form button:hover {
   background-color: #e06b00;
 }
+.user-dropdown-menu li a,
+.user-dropdown-menu button {
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  display: block;
+  text-align: left;
+  margin: 0;
+}
+.btn:focus, .btn:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+a.btn { text-decoration: none; outline: none; }

@@ -1,90 +1,268 @@
-/* Container */
-.createblog-container {
+/* ============================
+   WRAPPER
+============================ */
+.createblog-wrapper {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  background: #ffffff;
+  margin: 5rem auto 0 auto;
+  padding: 1.5rem;
 }
 
-/* Title */
-.createblog-title {
-  font-size: 2rem; /* 4xl */
-  font-weight: 700;
+/* ============================
+   HEADER
+============================ */
+.createblog-header {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.createblog-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
   color: #1f2937;
 }
 
-/* Form */
-.createblog-form {
+.createblog-header p {
+  color: #4b5563;
+  margin-top: 0.3rem;
+}
+
+/* ============================
+   FORM CARD
+============================ */
+.createblog-card {
+  background: transparent;
+  padding: 2rem 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  background: #f9fafb;
-  padding: 2rem;
-  border-radius: 1rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  gap: 1.3rem;
 }
 
-/* Inputs + textarea */
-.createblog-form input,
-.createblog-form textarea {
+/* ============================
+   SECTION TITLES
+============================ */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  color: #ff6600 !important;
+  border-left: 4px solid #ff6600;
+  padding-left: 8px;
+}
+
+/* ============================
+   INPUTS
+============================ */
+.createblog-card input,
+.createblog-card textarea,
+.select-input {
   width: 100%;
   border: 1px solid #d1d5db;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.55rem;
   background: #ffffff;
-  outline: none;
-  transition: all 0.3s;
+  font-size: 1rem;
+  transition: 0.2s;
 }
 
-.createblog-form input:focus,
-.createblog-form textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+.createblog-card input,
+.createblog-card textarea,
+.createblog-card .ql-editor {
+  color: black;
 }
 
-/* Bigger textarea */
-.createblog-form textarea.min-height {
-  min-height: 220px;
+/* Optional: placeholder text color */
+.createblog-card input::placeholder,
+.createblog-card textarea::placeholder {
+  color: #666; /* dark gray for placeholder */
 }
 
-/* Labels */
-.createblog-form label {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
+.createblog-card input:focus,
+.createblog-card textarea:focus,
+.select-input:focus {
+  border-color: #ff6600;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
+}
+
+/* ============================
+   BIG TEXTAREA / QUILL EDITOR
+============================ */
+.big-textarea {
+  min-height: 240px;
+}
+
+/* ReactQuill container */
+.big-textarea .ql-container {
+  border: 1px solid #d1d5db;
+  border-radius: 0.55rem;
+  font-size: 1rem;
+  min-height: 240px;
+}
+
+/* Quill toolbar */
+.big-textarea .ql-toolbar {
+  border-radius: 0.55rem 0.55rem 0 0;
+  border: 1px solid #d1d5db;
+  border-bottom: none;
+  background: #f9fafb;
+}
+
+/* Toolbar button hover / active */
+.big-textarea .ql-toolbar .ql-formats button {
   color: #374151;
 }
 
-/* File inputs */
-.createblog-form input[type="file"] {
-  display: block;
-  background: #ffffff;
-  padding: 0.5rem;
-  border-radius: 0.4rem;
+.big-textarea .ql-toolbar .ql-formats button:hover,
+.big-textarea .ql-toolbar .ql-formats button.ql-active {
+  color: #ff6600;
 }
 
-/* Submit button */
-.createblog-submit-btn {
-  padding: 0.75rem 1.5rem;
-  background-color: #16a34a;
-  color: #ffffff;
-  border-radius: 0.75rem;
-  font-size: 1.1rem;
+/* Editor body */
+.big-textarea .ql-editor {
+  min-height: 200px;
+  padding: 0.85rem 1rem;
+}
+
+/* Focus effect for Quill editor */
+.big-textarea .ql-container.ql-snow.ql-focused {
+  border-color: #ff6600;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
+}
+
+/* ============================
+   LABELS
+============================ */
+.upload-box label {
   font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #374151;
+  display: block;
+}
+
+/* ============================
+   FILE INPUTS
+============================ */
+.file-input {
+  margin-top: 6px;
+  display: block;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  background: #f8fafc;
   cursor: pointer;
+}
+
+/* ============================
+   MULTI-UPLOAD AREA
+============================ */
+.multi-upload-box {
+  width: 100%;
+  padding: 1.2rem;
+  border: 2px dashed #ff6600;
+  border-radius: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  color: #ff6600;
+  background: #fff7f2;
+}
+
+.hidden-input {
+  display: none;
+}
+
+/* ============================
+   COVER IMAGE PREVIEW
+============================ */
+.cover-preview-box {
+  margin-top: 1rem;
+  width: 100%;
+  height: 250px;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.cover-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-cover-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  color: red;
   border: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================
+   GALLERY PREVIEW GRID
+============================ */
+.preview-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem;
+}
+
+.preview-card {
+  position: relative;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.preview-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.remove-img-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: white;
+  color: red;
+  font-weight: bold;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================
+   BUTTON
+============================ */
+.publish-btn {
+  width: 100%;
+  padding: 1rem;
+  background: #ff6600;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
   transition: 0.3s;
 }
 
-.createblog-submit-btn:hover {
-  background-color: #15803d;
-  transform: translateY(-1px);
-}
-
-/* Hover elevation */
-.createblog-form:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+.publish-btn:hover {
+  background: #e95b00;
+  transform: translateY(-2px);
 }

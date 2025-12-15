@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import './TravelGuides.css'; // Make sure this CSS file exists and has proper styling
 
 // Travel posts data

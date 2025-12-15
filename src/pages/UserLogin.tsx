@@ -1,29 +1,39 @@
+// src/pages/Login.tsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/authcontext";
 import "../pages/login.css";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { loginUser, loading, error } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !password) {
-      alert("Please fill all fields");
-      return;
-    }
+    // Attempt login
+    const success = await loginUser({ email, password });
 
-    // Perform login logic here
-    navigate("/");
+    if (success) {
+      const isAdminLogin = location.pathname.startsWith("/admin");
+      if (isAdminLogin) {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/", { replace: true });
+      }
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-
         <h2 className="login-title">Login</h2>
+
+        {error && <p className="error-text">{error}</p>}
 
         <form onSubmit={handleLogin}>
           <div className="login-field">
@@ -34,6 +44,8 @@ const Login: React.FC = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
+              required
+              disabled={loading} // disable while loading
             />
           </div>
 
@@ -45,24 +57,22 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
+              required
+              disabled={loading} // disable while loading
             />
           </div>
 
-          <button type="submit" className="login-btn">
-            Login
+          <button type="submit" className="login-btn" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <p className="login-text">
           Don’t have an account?{" "}
-          <span
-            className="login-link"
-            onClick={() => navigate("/register")}
-          >
+          <span className="login-link" onClick={() => navigate("/register")}>
             Register
           </span>
         </p>
-
       </div>
     </div>
   );

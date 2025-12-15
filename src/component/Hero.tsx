@@ -1,5 +1,8 @@
 
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="hero">
       {/* Background Video */}
@@ -23,7 +26,7 @@ const Hero = () => {
           Discover breathtaking destinations, hidden gems, and unforgettable
           experiences around the globe.
         </p>
-        <button className="btn">START EXPLORING</button>
+        <button className="btn" onClick={() => navigate("/blogs")}>START EXPLORING</button>
       </div>
       
     </section>
