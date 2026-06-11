@@ -5,7 +5,7 @@ import App from "./App";
 
 import { AuthProvider } from "./context/authcontext";
 import { BlogProvider } from "./context/BlogContext";
-import { CategoryProvider } from "./context/CategoryContext";   // ✅ Add this
+import { CategoryProvider } from "./context/CategoryContext";   
 
 import "./style.css";
 
@@ -16,7 +16,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <CategoryProvider>     {/* ✅ MUST wrap Blog + App */}
+        <CategoryProvider>     {/*  MUST wrap Blog + App */}
           <BlogProvider>
             <App />
           </BlogProvider>

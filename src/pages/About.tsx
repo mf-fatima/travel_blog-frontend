@@ -58,7 +58,7 @@ const About: React.FC = () => {
         </div>
       </div>
 
-      {/* <PageBottomSection /> */}
+      <PageBottomSection />
     </>
   );
 };
