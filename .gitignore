@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+MY Album/
+*.mp4
+*.jpg
+*.png
